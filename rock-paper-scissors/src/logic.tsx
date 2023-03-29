@@ -21,11 +21,33 @@ const Buttons: React.FC = () => {
             setCount(0);
         }
     }
+
+    const [randomCount, setRandomCount] = useState(0);
+    const [randomText, setRandomText] = useState('');
+
+    function randomNum () {
+        return setRandomCount(Math.floor(Math.random() * 3));
+    }
+
+    useEffect(() => {
+        if (randomCount === 2) {
+            setRandomText('Scissors');
+        } else if (randomCount === 1) {
+            setRandomText('Paper');
+        } else {
+            setRandomText('Rock');
+        }
+    });
+
+
     
     return (
     <div>
         <button onClick={handleChoice}>Buttonas</button>
-        <p><span>{text}</span></p>
+        <p>User choice</p>
+        <p>{text}</p>
+        <p>Generated choice</p>
+        <p>{randomText}</p>
         </div>
         );
     };
