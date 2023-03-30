@@ -27,3 +27,8 @@
   font-size: 49px;
   margin-bottom: 50px;
 }
+.buttonsBox {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
