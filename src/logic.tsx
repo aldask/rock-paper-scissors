@@ -87,15 +87,20 @@ const Buttons: React.FC = () => {
 
     
     return (
-    <div>
-        <button onClick={handleChoice}>Your choice</button>
-        <p>User choice</p>
-        <p>{userText}</p>
-        <p>Generated choice</p>
-        <p>{generatedText}</p>
-        <p>Who won:</p>
-        <button onClick={handleWhoWon}>aaa</button>
+        <>
+        <div className='mainContainer'>
+            <h1 className='main'>ROCK PAPER SCISSORS</h1>
+            <p>Let's get started!</p>
+            <p>Press the button bellow to start</p>
+            <button onClick={handleChoice}>Your choice</button>
+            <p>User choice</p>
+            <p>{userText}</p>
+            <p>Generated choice</p>
+            <p>{generatedText}</p>
+            <p>Who won:</p>
+            <button onClick={handleWhoWon}>aaa</button>
         </div>
+        </>
         );
     };
 
