@@ -1,78 +1,98 @@
 import React, { useState, useEffect } from 'react';
 
-const Buttons: React.FC = () => {
+enum Choice {
+    Rock,
+    Paper,
+    Scissors
+}
 
+const Buttons: React.FC = () => {
     // USER SELECTION
-    const [count, setCount] = useState(0);
-    const [text, setText] = useState('');
+    const [userSelection, setUserSelection] = useState(Choice.Rock);
+    const [userText, setUserText] = useState('Rock');
     
     useEffect(() => {
-        if (count === 2) {
-            setText('Scissors');
-        } else if (count === 1) {
-            setText('Paper');
-        } else {
-            setText('Rock');
+        switch (userSelection) {
+          case Choice.Rock:
+            setUserText('Rock');
+            break;
+          case Choice.Paper:
+            setUserText('Paper');
+            break;
+          case Choice.Scissors:
+            setUserText('Scissors');
+            break;
+          default:
+            setUserText('Rock');
         }
-    }, [count]);
+      }, [userSelection]);
     
     function handleChoice() {
-        setCount(count + 1);
-        
-        if (count > 1) {
-            setCount(0);
+        setUserSelection(userSelection + 1);
+
+        if (userSelection > 2) {
+            setUserSelection(0);
         }
     }
     // USER SELECTION END
 
     // GENERATED SELECTION START
 
-    const [randomCount, setRandomCount] = useState(0);
-    const [randomText, setRandomText] = useState('');
+    const [generatedSelection, setGeneratedSelection] = useState(Choice.Rock);
+    const [generatedText, setGeneratedText] = useState('Rock');
+
+    //Random num generator
 
     function randomNum () {
         const generatedNum = Math.floor(Math.random() * 3);
-        setRandomCount(generatedNum);
+        setGeneratedSelection(generatedNum);
         return generatedNum;
     }
 
     useEffect(() => {
-        if (randomCount === 2) {
-            setRandomText('Scissors');
-        } else if (randomCount === 1) {
-            setRandomText('Paper');
-        } else {
-            setRandomText('Rock');
+        switch (generatedSelection) {
+          case Choice.Rock:
+            setGeneratedText('Rock');
+            break;
+          case Choice.Paper:
+            setGeneratedText('Paper');
+            break;
+          case Choice.Scissors:
+            setGeneratedText('Scissors');
+            break;
+          default:
+            setGeneratedText('Rock');
         }
-    }, [randomCount]);
+      }, [generatedSelection]);
 
     // GENERATED SELECTION END
 
     // WHO WON START
 
-    function handleWhoWon () {
-        let generatedNum = randomNum();
-        if (randomCount === generatedNum) {
-            alert (`It's a tie!`);
-        } else if ((randomCount === 0 && generatedNum === 2) || 
-                   (randomCount === 1 && generatedNum === 0) || 
-                   (randomCount === 2 && generatedNum === 1)) {
-            alert (`You win! You chose ${randomText} and the computer chose `);
-        } else {
-            alert (`You lose! You chose ${randomText} and the computer chose `);
+    function handleWhoWon() {
+        randomNum();
+        switch (true) {
+          case userSelection === generatedSelection:
+            alert(`It's a tie! ${userText} - ${generatedText}`);
+            break;
+          case (userSelection === 2 && generatedSelection === 1) ||
+               (userSelection === 1 && generatedSelection === 0) ||
+               (userSelection === 0 && generatedSelection === 2):
+            alert(`You win! You chose ${userText} and the computer chose ${generatedText}`);
+            break;
+          default:
+            alert(`You lose! You chose ${userText} and the computer chose ${generatedText}`);
         }
-    }
-
-
+      }
 
     
     return (
     <div>
         <button onClick={handleChoice}>Your choice</button>
         <p>User choice</p>
-        <p>{text}</p>
+        <p>{userText}</p>
         <p>Generated choice</p>
-        <p>{randomText}</p>
+        <p>{generatedText}</p>
         <p>Who won:</p>
         <button onClick={handleWhoWon}>aaa</button>
         </div>
