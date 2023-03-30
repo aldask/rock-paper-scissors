@@ -30,7 +30,7 @@ const Buttons: React.FC = () => {
     function handleChoice() {
         setUserSelection(userSelection + 1);
 
-        if (userSelection > 2) {
+        if (userSelection > 1) {
             setUserSelection(0);
         }
     }
@@ -90,15 +90,15 @@ const Buttons: React.FC = () => {
         <>
         <div className='mainContainer'>
             <h1 className='main'>ROCK PAPER SCISSORS</h1>
-            <p>Let's get started!</p>
-            <p>Press the button bellow to start</p>
-            <button onClick={handleChoice}>Your choice</button>
-            <p>User choice</p>
-            <p>{userText}</p>
-            <p>Generated choice</p>
-            <p>{generatedText}</p>
-            <p>Who won:</p>
-            <button onClick={handleWhoWon}>aaa</button>
+            <div className='infoBox'>
+                <p>You will be playing against computer</p>
+                <p>Press the button bellow to start</p>
+            </div>
+            <div className='buttonsBox'>
+                <button onClick={handleChoice}>Select</button>
+                <p>Your selection: <span>{userText}</span></p>
+            </div>
+            <button onClick={handleWhoWon}>Play!</button>
         </div>
         </>
         );
