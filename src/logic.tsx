@@ -12,27 +12,27 @@ const Buttons: React.FC = () => {
     const [userText, setUserText] = useState('Rock');
     
     useEffect(() => {
-        switch (userSelection) {
-          case Choice.Rock:
-            setUserText('Rock');
-            break;
-          case Choice.Paper:
-            setUserText('Paper');
-            break;
-          case Choice.Scissors:
-            setUserText('Scissors');
-            break;
-          default:
-            setUserText('Rock');
+      switch (userSelection) {
+        case Choice.Rock:
+          setUserText('Rock');
+          break;
+        case Choice.Paper:
+          setUserText('Paper');
+          break;
+        case Choice.Scissors:
+          setUserText('Scissors');
+          break;
+        default:
+          setUserText('Rock');
         }
       }, [userSelection]);
     
     function handleChoice() {
-        setUserSelection(userSelection + 1);
-
-        if (userSelection > 1) {
-            setUserSelection(0);
-        }
+      setUserSelection(userSelection + 1);
+      
+      if (userSelection > 1) {
+        setUserSelection(0);
+      }
     }
     // USER SELECTION END
 
@@ -44,24 +44,24 @@ const Buttons: React.FC = () => {
     //Random num generator
 
     function randomNum () {
-        const generatedNum = Math.floor(Math.random() * 3);
-        setGeneratedSelection(generatedNum);
-        return generatedNum;
+      const generatedNum = Math.floor(Math.random() * 3);
+      setGeneratedSelection(generatedNum);
+      return generatedNum;
     }
 
     useEffect(() => {
-        switch (generatedSelection) {
-          case Choice.Rock:
-            setGeneratedText('Rock');
-            break;
-          case Choice.Paper:
-            setGeneratedText('Paper');
-            break;
-          case Choice.Scissors:
-            setGeneratedText('Scissors');
-            break;
-          default:
-            setGeneratedText('Rock');
+      switch (generatedSelection) {
+        case Choice.Rock:
+          setGeneratedText('Rock');
+          break;
+        case Choice.Paper:
+          setGeneratedText('Paper');
+          break;
+        case Choice.Scissors:
+          setGeneratedText('Scissors');
+          break;
+        default:
+          setGeneratedText('Rock');
         }
       }, [generatedSelection]);
 
@@ -70,38 +70,38 @@ const Buttons: React.FC = () => {
     // WHO WON START
 
     function handleWhoWon() {
-        randomNum();
-        switch (true) {
-          case userSelection === generatedSelection:
-            alert(`It's a tie! ${userText} - ${generatedText}`);
-            break;
-          case (userSelection === 2 && generatedSelection === 1) ||
-               (userSelection === 1 && generatedSelection === 0) ||
-               (userSelection === 0 && generatedSelection === 2):
-            alert(`You win! You chose ${userText} and the computer chose ${generatedText}`);
-            break;
-          default:
-            alert(`You lose! You chose ${userText} and the computer chose ${generatedText}`);
+      randomNum();
+      switch (true) {
+        case userSelection === generatedSelection:
+          alert(`It's a tie! ${userText} - ${generatedText}`);
+          break;
+        case (userSelection === 2 && generatedSelection === 1) || 
+             (userSelection === 1 && generatedSelection === 0) || 
+             (userSelection === 0 && generatedSelection === 2):
+             alert(`You win! You chose ${userText} and the computer chose ${generatedText}`);
+             break;
+        default:
+          alert(`You lose! You chose ${userText} and the computer chose ${generatedText}`);
         }
       }
-
-    
-    return (
-        <>
-        <div className='mainContainer'>
-            <h1 className='main'>ROCK PAPER SCISSORS</h1>
-            <div className='infoBox'>
-                <p>You will be playing against computer</p>
-                <p>Press the button bellow to start</p>
-            </div>
-            <div className='buttonsBox'>
-                <button onClick={handleChoice}>Select</button>
-                <p>Your selection: <span>{userText}</span></p>
-            </div>
-            <button onClick={handleWhoWon}>Play!</button>
+      
+      return (
+      <>
+      <div className='mainContainer loaded'>
+        <h1 className='mainText'>ROCK PAPER SCISSORS</h1>
+        <div className='infoBox'>
+          <p>Welcome to Rock Paper Scissors Mini-game!</p>
+          <p>You will be playing against computer</p>
+          <p>Press the button bellow to start</p>
         </div>
-        </>
-        );
+        <div className='buttonsBox'>
+          <button onClick={handleChoice}>Select</button>
+          <p>Your selection: <span>{userText}</span></p>
+        </div>
+        <button onClick={handleWhoWon}>Play!</button>
+      </div>
+      </>
+      );
     };
-
+    
 export default Buttons;
