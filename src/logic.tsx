@@ -1,55 +1,107 @@
 import React, { useState, useEffect } from 'react';
 
+enum Choice {
+    Rock,
+    Paper,
+    Scissors
+}
+
 const Buttons: React.FC = () => {
-    const [count, setCount] = useState(0);
-    const [text, setText] = useState('');
+    // USER SELECTION
+    const [userSelection, setUserSelection] = useState(Choice.Rock);
+    const [userText, setUserText] = useState('Rock');
     
     useEffect(() => {
-        if (count === 2) {
-            setText('Scissors');
-        } else if (count === 1) {
-            setText('Paper');
-        } else {
-            setText('Rock');
+      switch (userSelection) {
+        case Choice.Rock:
+          setUserText('Rock');
+          break;
+        case Choice.Paper:
+          setUserText('Paper');
+          break;
+        case Choice.Scissors:
+          setUserText('Scissors');
+          break;
+        default:
+          setUserText('Rock');
         }
-    }, [count]);
+      }, [userSelection]);
     
     function handleChoice() {
-        setCount(count + 1);
-        
-        if (count > 1) {
-            setCount(0);
-        }
+      setUserSelection(userSelection + 1);
+      
+      if (userSelection > 1) {
+        setUserSelection(0);
+      }
     }
+    // USER SELECTION END
 
-    const [randomCount, setRandomCount] = useState(0);
-    const [randomText, setRandomText] = useState('');
+    // GENERATED SELECTION START
+
+    const [generatedSelection, setGeneratedSelection] = useState(Choice.Rock);
+    const [generatedText, setGeneratedText] = useState('Rock');
+
+    //Random num generator
 
     function randomNum () {
-        return setRandomCount(Math.floor(Math.random() * 3));
+      const generatedNum = Math.floor(Math.random() * 3);
+      setGeneratedSelection(generatedNum);
+      return generatedNum;
     }
 
     useEffect(() => {
-        if (randomCount === 2) {
-            setRandomText('Scissors');
-        } else if (randomCount === 1) {
-            setRandomText('Paper');
-        } else {
-            setRandomText('Rock');
+      switch (generatedSelection) {
+        case Choice.Rock:
+          setGeneratedText('Rock');
+          break;
+        case Choice.Paper:
+          setGeneratedText('Paper');
+          break;
+        case Choice.Scissors:
+          setGeneratedText('Scissors');
+          break;
+        default:
+          setGeneratedText('Rock');
         }
-    });
+      }, [generatedSelection]);
 
+    // GENERATED SELECTION END
 
-    
-    return (
-    <div>
-        <button onClick={handleChoice}>Buttonas</button>
-        <p>User choice</p>
-        <p>{text}</p>
-        <p>Generated choice</p>
-        <p>{randomText}</p>
+    // WHO WON START
+
+    function handleWhoWon() {
+      randomNum();
+      switch (true) {
+        case userSelection === generatedSelection:
+          alert(`It's a tie! ${userText} - ${generatedText}`);
+          break;
+        case (userSelection === 2 && generatedSelection === 1) || 
+             (userSelection === 1 && generatedSelection === 0) || 
+             (userSelection === 0 && generatedSelection === 2):
+             alert(`You win! You chose ${userText} and the computer chose ${generatedText}`);
+             break;
+        default:
+          alert(`You lose! You chose ${userText} and the computer chose ${generatedText}`);
+        }
+      }
+      
+      return (
+      <>
+      <div className='mainContainer loaded'>
+        <h1 className='mainText'>ROCK PAPER SCISSORS</h1>
+        <div className='infoBox'>
+          <p>Welcome to Rock Paper Scissors Mini-game!</p>
+          <p>You will be playing against computer</p>
+          <p>Press the button bellow to start</p>
         </div>
-        );
+        <div className='buttonsBox'>
+          <button onClick={handleChoice}>Select</button>
+          <p>Your selection: <span>{userText}</span></p>
+        </div>
+        <button onClick={handleWhoWon}>Play!</button>
+      </div>
+      </>
+      );
     };
-
+    
 export default Buttons;
