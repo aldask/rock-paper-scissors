@@ -11,7 +11,7 @@ I created this project to hone and develop my coding abilities. My main objectiv
 
 ## Live Preview
 
-You can view a live preview of the landing page [here](url).
+You can view a live preview of the landing page [here](https://rock-paper-scissors-rust-nine.vercel.app/).
 
 ## Contributing
 
