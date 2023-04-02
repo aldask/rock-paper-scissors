@@ -1,38 +1,6 @@
 # Rock Paper Scissors Mini-Game
 
-![HTML](https://img.shields.io/badge/HTML-5-orange?style=flat-square&logo=html5)
-![CSS](https://img.shields.io/badge/CSS-3-blue?style=flat-square&logo=css3)
-![TypeScript](https://img.shields.io/badge/TypeScript-4.5.4-blue?style=flat-square&logo=typescript)
-![React](https://img.shields.io/badge/React-17.0.2-blue?style=flat-square&logo=react)
-
-## Description
-
 I created this project to hone and develop my coding abilities. My main objective was to create simple Rock Paper Scissors mini-game using TypeScript and React.
-
-## Live Preview
-
-You can view a live preview of the landing page [here](https://rock-paper-scissors-rust-nine.vercel.app/).
-
-## Contributing
-
-Contributions are welcome! If you would like to contribute to the project, please fork the repository and submit a pull request
-
-## License
-
-This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
-
-## Contact and Credits
-
-This project was created by **Aldas Kasputis.**
-
-- [LinkedIn](https://www.linkedin.com/in/aldas-k-2ab99b1b4/)
-- [GitHub](https://github.com/aldask)
-
-If you have any questions or feedback, feel free to reach out to me through one of these channels. Thank you for checking out my project!
-
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
