@@ -1,10 +1,10 @@
 import React from 'react';
-import Buttons from './logic';
+import MainPage from './main';
 
 function App() {
   return (
     <div className="App">
-      <Buttons />
+      <MainPage />
     </div>
   );
 }
