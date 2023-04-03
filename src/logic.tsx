@@ -78,12 +78,12 @@ export const useLogic = () => {
         (userSelection === 1 && generatedSelection === 0) ||
         (userSelection === 0 && generatedSelection === 2):
         alert(
-          `You win! You chose ${userText} and the computer chose ${generatedText}`
+          `YOU WON! You chose ${userText} and the computer chose ${generatedText}`
         );
         break;
       default:
         alert(
-          `You lose! You chose ${userText} and the computer chose ${generatedText}`
+          `YOU LOST! You chose ${userText} and the computer chose ${generatedText}`
         );
     }
   }
