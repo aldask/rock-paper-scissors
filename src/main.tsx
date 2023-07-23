@@ -6,7 +6,7 @@ const MainPage: React.FC = () => {
 
   return (
     <>
-      <div className="mainContainer loaded">
+      <div className="mainContainer">
         <h1 className="mainText">ROCK PAPER SCISSORS</h1>
         <div className="infoBox">
           <p>Welcome to Rock Paper Scissors Mini-Game!</p>
