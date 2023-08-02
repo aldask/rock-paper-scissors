@@ -14,7 +14,6 @@ body {
   font-weight: 500;
   background-image: url("img/background.gif");
   background-size: cover;
-  background-position: center;
 }
 
 .mainContainer {
